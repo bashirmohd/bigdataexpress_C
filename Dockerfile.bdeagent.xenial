@@ -1,0 +1,84 @@
+#/*******************************************************************************
+#  Copyright (c) 2019 Fermilab Network Research Group.
+#  All rights reserved. This program and the accompanying materials
+#  are made available under the terms of the GNU General Public License
+#  which accompanies this distribution, and is available at
+#  Free Software Foundation.
+# 
+# *******************************************************************************/
+
+#*****************
+#  buider image
+#*****************
+FROM mdtmftpplus:HEAD-xenial as builder
+
+ARG MDTM_VERSION=HEAD
+ARG MDTMFTP_VERSION=HEAD
+
+ENV BDE_PREFIX /bdework
+ENV PATH $BDE_PREFIX:$PATH
+RUN mkdir -p "$BDE_PREFIX" && \
+    chown bde:bde "$BDE_PREFIX"
+WORKDIR $BDE_PREFIX
+
+# install build tools and dependency libraries
+RUN apt-get update && \
+    apt-get install -y gcc g++ make autoconf automake libtool m4 pkg-config cmake && \
+    apt-get install -y git-core wget && \
+    apt-get install -y libnuma-dev libhwloc-dev liblvm2-dev libblkid-dev libssl-dev libmosquitto-dev libjson-c-dev libkrb5-dev libltdl-dev libncurses5-dev uuid-dev librrd-dev && \
+    apt-get install -y gdb strace ltrace net-tools && \
+    apt-get install -y iputils-ping sysstat iozone3 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    wget https://dl.influxdata.com/telegraf/releases/telegraf_1.11.3-1_amd64.deb && \
+    dpkg -i telegraf_1.11.3-1_amd64.deb
+
+# get the source code from host
+COPY ./ "$BDE_PREFIX"/bigdata-express-server/
+COPY entrypoint.sh.bdeagent /entrypoint.sh
+
+# install bde agent
+RUN \
+    cd bigdata-express-server && \
+    ./bootstrap_libraries.sh && \
+    mkdir build; cd build && \
+    cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
+    make    
+
+#********************
+#  production image 
+#********************
+FROM mdtmftpplus:HEAD-xenial
+
+ARG MDTM_VERSION=HEAD
+ARG MDTMFTP_VERSION=HEAD
+
+ENV BDE_PREFIX /bdework
+ENV PATH $BDE_PREFIX:$PATH
+RUN mkdir -p "$BDE_PREFIX" && \
+    chown bde:bde "$BDE_PREFIX"
+WORKDIR $BDE_PREFIX
+
+RUN apt-get update && \
+    apt-get install -y iputils-ping net-tools iozone3 locales-all acl wget && \
+    apt-get install -y numactl hwloc lvm2 openssl libmosquitto1 libjson-c2 libkrb5-dev libncurses5-dev librrd-dev && \
+    apt-get install -y gdb sysstat && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*&& \
+    wget https://dl.influxdata.com/telegraf/releases/telegraf_1.11.3-1_amd64.deb && \
+    dpkg -i telegraf_1.11.3-1_amd64.deb
+
+COPY --from=builder /$BDE_PREFIX/bigdata-express-server/build/server/bdeserver /usr/local/bin/
+COPY --from=builder /$BDE_PREFIX/bigdata-express-server/build/agent/bdeagent /usr/local/bin/
+COPY --from=builder /usr/bin/iostat /usr/local/bin/
+#COPY --from=builder /usr/bin/telegraf /usr/local/telegraf
+COPY --from=builder /entrypoint.sh /entrypoint.sh
+
+RUN setcap cap_net_admin+ep /usr/local/bin/bdeagent && \
+    setcap cap_sys_nice,cap_ipc_lock,cap_sys_admin,cap_sys_resource+ep /usr/local/mdtmftp+/$MDTMFTP_VERSION/sbin/mdtm-ftp-server && \
+    echo "*               soft    nofile          10240" >> /etc/security/limits.conf && \
+    echo "*               hard    nofile          10240" >> /etc/security/limits.conf
+    
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["/usr/local/bin/bdeagent", "-c", "/usr/local/etc/bdeagent.json"]

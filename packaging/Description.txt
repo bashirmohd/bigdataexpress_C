@@ -1,0 +1,4 @@
+Big Data Express is a joint research project between FNAL and ORNL.
+
+This package provides BDE Agent, a program that will run in data
+transfer nodes.

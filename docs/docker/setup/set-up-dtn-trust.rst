@@ -1,0 +1,1 @@
+../../manual/setup/set-up-dtn-trust.rst

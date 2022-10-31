@@ -1,0 +1,68 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "localhost",
+            "port": 1883
+        },
+        "store": {
+            "host": "localhost",
+            "port": 27017,
+            "db": "bde"
+        },
+        "tsdb": {
+            "host": "localhost",
+            "port": 8086,
+            "db": "bde"
+        },
+        "programs": {
+            "iozone": "/usr/local/bin/iozone"
+        }
+    },
+    "modules": {
+        "m1": {
+            "name": "DTN Agent on localhost",
+            "id": "00:00:00:00:00:00",
+            "type": "DTN",
+            "management_interface": "lo",
+            "data_interfaces": [ "lo" ],
+	    "ignore_route_cmds": true,
+	    "ignore_arp_cmds": true,
+            "use_hostname_for_control": true,
+            "use_expand_v2_parent_list": false,
+            "checksum" : {
+                "threads": 10,
+                "file_size_threshold": 1000000000
+            },
+            "data_folders": {
+                "path": [ "/data" ],
+                "scan": true
+            },
+            "iozone" : {
+                "enable" : false
+            },
+            "data_transfer_program": {
+                "path": "/usr/local/mdtmftp+/current/sbin/mdtm-ftp-server",
+                "args": [
+                    "-control-interface",
+                    "ip-of(&management_interface)",
+                    "-data-interface",
+                    "ip-of(&data_interfaces[0])",
+                    "-p",
+                    7001,
+                    "-password-file",
+                    "/usr/local/etc/bde/password",
+                    "-c",
+                    "/usr/local/etc/bde/server.conf",
+                    "-l",
+                    "/tmp/mdtmftp-5001.log",
+                    "-log-level",
+                    "all"
+                ],
+                "env": [
+                    { "GLOBUS_TCP_SOURCE_RANGE": "54000,58000" },
+                    { "GLOBUS_TCP_PORT_RANGE": "32000,34640" }
+                ]
+            }
+        }
+    }
+}

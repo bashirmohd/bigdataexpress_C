@@ -1,0 +1,7 @@
+{
+    "target": "f4:52:14:73:78:30",
+    "cmd": "dtn_status",
+    "params": {
+        "interface": "ens6f1"
+    }
+}

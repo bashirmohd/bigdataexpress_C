@@ -1,0 +1,60 @@
+{
+    "agent": {
+        "mq_server": {
+            "cacert": "/opt/fnal/bde/certs/cert-bde-hp6.pem",
+            "host": "bde-hp6.fnal.gov",
+            "port": 5671
+        },
+        "store": {
+            "db": "bde",
+            "host": "bde-hp6.fnal.gov",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde",
+            "host": "bde-hp6.fnal.gov",
+            "port": 8086
+        }
+    },
+    "modules": {
+        "m1": {
+            "data_interfaces": [
+                "ens6f1"
+            ],
+            "management_interface": "ens6f1",
+            "name": "Test DTN Agent",
+            "type": "DTN",
+            "data_folders": {
+                "path": [
+                    "/data1"
+                ],
+                "scan": true
+            },
+            "local_storage_agent": {
+                "type": "LocalStoageAgent",
+                "iozone-executable": "/usr/local/bin/iozone"
+            },
+            "data_transfer_program": {
+                "path": "/usr/local/mdtmftp+/current/sbin/mdtm-ftp-server",
+                "args": [
+                    "-data-interface",
+                    "131.225.2.31",
+                    "-p",
+                    6001,
+                    "-password-file",
+                    "/opt/fnal/bde/config/mdtmftp+/password",
+                    "-c",
+                    "/opt/fnal/bde/config/mdtmftp+/server.conf",
+                    "-l",
+                    "/tmp/mdtmftp.log",
+                    "-log-level",
+                    "all"
+                ],
+                "env": [
+                  { "GLOBUS_TCP_SOURCE_RANGE": "64000,64640" },
+                  { "GLOBUS_TCP_PORT_RANGE": "32000,34640" }
+                ]
+            }
+        }
+    }
+}

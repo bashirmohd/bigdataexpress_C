@@ -1,0 +1,9 @@
+#!/bin/bash
+
+docker run --name bdeserver -it --rm \
+   --network host \
+   -v $(pwd)/server:/usr/local/etc/ \
+   -v $(pwd)/mosquitto/ssl:/mosquitto/config/ssl \
+   publicregistry.fnal.gov/bigdata_express/bdeserver:HEAD-xenial \
+   $@
+

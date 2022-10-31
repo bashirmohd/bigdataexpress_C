@@ -1,0 +1,40 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "localhost",
+            "port": 1883,
+            "queue": "launcher"
+        },
+        "store": {
+            "host": "localhost",
+            "port": 27017,
+            "db": "bde"
+        },
+        "tsdb": {
+            "host": "localhost",
+            "port": 8086,
+            "db": "bde"
+        }
+    },
+    "modules": {
+        "m1": {
+            "type": "Launcher",
+            "name": "Launching daemon on head.node.example.net",
+            "id": "launcher-id",
+            "subprocess" : {
+                "type": "mdtm-ftp-client",
+                "ipv6": false,
+                "queues": {
+                    "bde_server_queue": "bdeserver",
+                    "mdtm_listen_queue": "mdtm-listen-launcher",
+                    "mdtm_report_queue": "mdtm-report-launcher"
+                },
+                "path": "/usr/local/mdtmftp+/current/bin/mdtm-ftp-client",
+                "args": [ "-vb", "-p", "16" ],
+                "env": [
+                    { "ENVVAR": "ENVVAL" }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "cmd" : "dtn_expand_and_group_v2",
+    "target" : "00:00:00:00:00:00",
+    "description": "directory, no checksum, with different target folder",
+    "params" :
+    {
+        "checksum" :
+        {
+            "compute" : false
+        },
+        "dst_path" : "/sc_demo_ssd/",
+        "group_size" : 2199023255552,
+        "max_files" : 2000,
+        "result_in_db" : false,
+        "src_path" :
+        [
+            "/data/src/linux-4.4.49"
+        ]
+    }
+}

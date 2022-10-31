@@ -1,0 +1,31 @@
+{
+    "cmd": "launch",
+    "target": "launcher-agent",
+    "params": {
+        "files": [
+            [ "/data1/linux-4.13.4/", "/sc_demo/linux-4.13.4/", 0, 0 ],
+            [ "/data1/linux-4.13.4/", "/sc_demo/linux-4.13.4/", 0, 0 ]
+        ],
+        "ip_src": "131.225.2.29",
+        "ip_dst": "131.225.2.31",
+        "port_dst": 5001,
+        "port_range_dst": {
+            "max": 6000,
+            "min": 5000
+        },
+        "port_range_src": {
+            "max": 6000,
+            "min": 5000
+        },
+        "port_src": 5001,
+        "task": "ae658f98-8e24-4f32-adb0-762fcbe150a7",
+        "url_scheme_dst": 1,
+        "url_scheme_src": 1,
+        "proxy_credential_src": "",
+        "proxy_credential_dst": "",
+        "usr_src": "sajith",
+        "pwd_src": "secret",
+        "usr_dst": "sajith",
+        "pwd_dst": "secret"
+    }
+}

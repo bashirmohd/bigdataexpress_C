@@ -1,0 +1,25 @@
+
+BigData Express consists of several components:
+(a) Web Portal, which allows to access to BigData Express services
+(b) Scheduler, which co-schedule DTN(s), storage, and network
+(c) AmoebaNet, which manages LAN network resources, if SDN-eanbled LAN is avaiable
+(d) mdtmFTP, a high performace data transfer engine.
+(e) DTN Agent, which manages and configures DTNs.
+(f) DTN Transfer Launching Agent, which launch data transfer jobs. 
+
+
+In a typically BigData Express deployment, Web portal, scheduler, Amoebanet, and DTN Transfer Launching agent runs at a dedicated system. We call it BigData Express head node. DTN Agent and mdtmFTP run at each DTN. 
+
+BigData Express Configuration Steps:
+
+Step 1: Following instrucitons to install sofware at BigData Express Head Node and DTN(s).
+
+Step 2: DTN agent and mdtmFTP require several linux capabilities to operate if run as non-root. Please add the following Linux capabilities to DTN agent and mdtmFTP at each DTN
+(a) DTN Agent: CAP_NET_RAW
+(b) mdtmFTP: CAP_SYS_RESOURCE (to enable splice), CAP_SYS_NICE (to bind thread), CAP_IPC_LOCK (to lock memory), CAP_SYS_ADMIN (to increase # of open files)
+
+Step 3: Verify if BigData Express Head Node and DTNs can access each other. If firewall is enabled, please open ports for  MQTT communication and mdtmFTP control channel; 
+
+Step 4: Create local account(s) at each DTN for data transfer. Setup appropriate W/R permisisons for folder(s)/file(s).  
+
+Step 5:	Login web portal, associate CN to local account(s)@DTN(s)

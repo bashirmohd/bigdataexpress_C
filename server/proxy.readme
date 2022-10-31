@@ -1,0 +1,15 @@
+To compile proxy:
+
+   g++ proxy.cc -lssl -lcrypto
+
+From cilogon [1], you can obtain a "usercred.p12" file that is valid
+for a year.  We will extract "usercert.pem" and "userkey.pem" files
+from the "usercred.p12" file.
+
+To convert PKCS12 file to PEM files:
+
+  openssl pkcs12 -in usercred.p12 -nokeys -out usercert.pem
+  openssl pkcs12 -in usercred.p12 -nocerts -out userkey.pem
+
+[1] https://cilogon.org/
+

@@ -1,0 +1,4 @@
+{
+    "target" : "00:00:00:00:00:00|/dev/mapper/fedora-root",
+    "cmd": "ls_estimate_total_rate"
+}

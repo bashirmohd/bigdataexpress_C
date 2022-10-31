@@ -1,0 +1,17 @@
+# Typically installed in /lib/systemd/system/.
+
+[Unit]
+Description=Bigdata Express Launcher Agent
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=@CMAKE_INSTALL_PREFIX@/bin/bdeagent -d -c @CMAKE_INSTALL_PREFIX@/etc/bdeagent/launcher.json -l /tmp/bdelauncher.log
+# User=bde
+TimeoutStopSec=10
+KillMode=mixed
+Restart=always
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

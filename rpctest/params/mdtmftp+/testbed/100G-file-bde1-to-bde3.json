@@ -1,0 +1,25 @@
+{
+    "cmd": "launch",
+    "params": {
+        "task": "cdead12c-36cc-4342-99f1-984eb1008293",
+        "files": [
+            [ "/data1/src/100G.bin", "/data1/tgt/100G.bin", 107374182400,  0 ]
+        ],
+        "ip_src": "bde1.fnal.gov",
+        "ip_dst": "bde3.fnal.gov",
+        "port_src": 6001,
+        "port_dst": 6001,
+        "port_range_src": { "min": 5000, "max": 6000 },
+        "port_range_dst": { "min": 5000, "max": 6000 },
+        "url_scheme_src": 0,
+        "url_scheme_dst": 0,
+        "usr_src": "sajith",
+        "pwd_src": "secret",
+        "usr_dst": "sajith",
+        "pwd_dst": "secret",
+        "cert_src": "temp_src_cert",
+        "cert_dst": "temp_dst_cert",
+        "key_src": "temp_src_key",
+        "key_dst": "temp_dst_key"
+    }
+}

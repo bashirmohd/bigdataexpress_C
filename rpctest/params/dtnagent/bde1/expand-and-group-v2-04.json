@@ -1,0 +1,12 @@
+{
+    "cmd": "dtn_expand_and_group_v2",
+    "params": {
+        "dst_path": "/data1/",
+        "group_size": 1000000000,
+        "max_files": 2000,
+        "src_path": [
+            "/data1/linux-4.13.4/"
+        ]
+    },
+    "target": "0c:c4:7a:ab:63:7e"
+}

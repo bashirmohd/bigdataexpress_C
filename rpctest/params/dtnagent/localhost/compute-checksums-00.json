@@ -1,0 +1,9 @@
+{
+    "target": "00:00:00:00:00:00",
+    "cmd": "dtn_compute_checksums",
+    "params": {
+        "algorithm": "sha1",
+        "src_path": "/data/src/linux-4.4.49.tar.xz",
+        "dst_path": "/data2/"
+    }
+}

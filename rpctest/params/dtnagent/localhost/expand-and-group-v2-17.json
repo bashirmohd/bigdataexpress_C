@@ -1,0 +1,16 @@
+{
+    "cmd" : "dtn_expand_and_group_v2",
+    "target" : "00:00:00:00:00:00",
+    "description": "many files, no checksum, several directories",
+    "params" :
+    {
+        "dst_path" : "/data/dst/",
+        "group_size" : 20000000,
+        "src_path" :
+        [
+            "/data/src/texts/zero.txt",
+            "/data/src/texts/test/one.txt",
+            "/data/src/texts/test/under/two.txt"
+        ]
+    }
+}

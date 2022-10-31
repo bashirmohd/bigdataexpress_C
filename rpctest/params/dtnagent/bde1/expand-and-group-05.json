@@ -1,0 +1,9 @@
+{
+    "target": "0c:c4:7a:ab:63:7e",
+    "cmd": "dtn_expand_and_group",
+    "params": {
+        "src_path": ["/data1/10G"],
+        "dst_path": "/data2",
+        "group_size": 32212254720
+    }
+}

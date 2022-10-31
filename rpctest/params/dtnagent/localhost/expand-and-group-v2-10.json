@@ -1,0 +1,21 @@
+{
+    "cmd" : "dtn_expand_and_group_v2",
+    "target" : "00:00:00:00:00:00",
+    "description": "directory checksum, with a different destination path",
+    "params" :
+    {
+        "checksum" :
+        {
+            "algorithm" : "sha1",
+            "compute" : true
+        },
+        "dst_path" : "/sc_demo_ssd/",
+        "group_size" : 2199023255552,
+        "max_files" : 2000,
+        "result_in_db" : false,
+        "src_path" :
+        [
+            "/data/src/linux-4.4.49"
+        ]
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "localhost",
+            "port": 8883,
+            "cacert": "/etc/mosquitto/ca/ca.crt"
+        },
+        "store": {
+            "host": "localhost",
+            "port": 27017,
+            "db": "bde"
+        },
+        "tsdb": {
+            "host": "localhost",
+            "port": 8086,
+            "db": "bde"
+        },
+        "programs" : {
+            "iozone": "/usr/local/bin/iozone"
+        }
+    },
+    "modules": {
+        "m1": {
+            "name": "DTN Agent on localhost",
+            "type": "DTN",
+            "management_interface": "lo",
+            "data_interfaces": [ "lo" ],
+	    "ignore_route_cmds": true,
+	    "ignore_arp_cmds": true,
+            "data_folders": {
+                "path": [ "/data" ],
+                "scan": true
+            },
+            "data_transfer_program": {
+                "path": "/usr/local/mdtmftp+/current/sbin/mdtm-ftp-server",
+                "args": [
+                    "-control-interface",
+                    "ip-of(&management_interface)",
+                    "-data-interface",
+                    "ip-of(&data_interfaces[0])",
+                    "-p",
+                    6001,
+                    "-password-file",
+                    "/usr/local/etc/bde/password",
+                    "-c",
+                    "/usr/local/etc/bde/server.conf",
+                    "-l",
+                    "/tmp/mdtmftp-6001.log",
+                    "-log-level",
+                    "all"
+                ],
+                "env": [
+                    { "GLOBUS_TCP_SOURCE_RANGE": "58000,62000" },
+                    { "GLOBUS_TCP_PORT_RANGE": "35000,37640" }
+                ]
+            }
+        }
+    }
+}

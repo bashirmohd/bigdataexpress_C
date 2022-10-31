@@ -1,0 +1,5 @@
+{
+    "target" : "0c:c4:7a:ab:63:7e|/dev/nvme0n1",
+    "cmd": "ls_get_rate",
+    "params": { }
+}

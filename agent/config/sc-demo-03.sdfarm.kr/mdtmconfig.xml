@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no" ?>
+<Topology>
+	<Device type="Network" numa="0">ens801.2</Device>
+</Topology>
+<Online>
+        <Device>ens801d1</Device>
+        <Device>ens801.2</Device>
+</Online>
+<Threads threads="1">
+        <Device type="Network" threads="2">ens801.2</Device>
+        <Device type="Block" threads="2">ens801d1</Device>
+</Threads>
+<File segment="2G">
+</File>

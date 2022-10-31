@@ -1,0 +1,7 @@
+{
+    "cmd": "dtn_send_icmp_ping",
+    "params": {
+        "destination": "134.75.125.77"
+    },
+    "target": "1c:98:ec:11:25:52"
+}

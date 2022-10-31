@@ -1,0 +1,8 @@
+{
+    "target": "00:00:00:00:00:00",
+    "cmd": "dtn_get_disk_usage",
+    "params": {
+        "path": "/data",
+        "user": ""
+    }
+}

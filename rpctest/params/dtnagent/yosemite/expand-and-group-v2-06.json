@@ -1,0 +1,10 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd": "dtn_expand_and_group_v2",
+    "params": {
+        "src_path": ["/DATA/linux-4.13.3", "/DATA/linux-4.4.49"],
+        "dst_path": "/data2",
+        "group_size": 1048576000,
+        "max_files" : 10
+    }
+}

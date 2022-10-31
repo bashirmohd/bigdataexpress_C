@@ -1,0 +1,4 @@
+{
+    "cmd": "dtn_stop_pong",
+    "target": "00:25:90:fd:1b:24"
+}

@@ -1,0 +1,7 @@
+{
+    "cmd": "mld_status",
+    "target": "launcher-agent",
+    "params": {
+        "task": "F7F2-7E41-0D38-6E89"
+    }
+}

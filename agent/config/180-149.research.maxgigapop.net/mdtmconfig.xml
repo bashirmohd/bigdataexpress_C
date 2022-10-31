@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no" ?>
+<Topology>
+        <Device type="Block" numa="0">rbd0</Device>
+	<Device type="Network" numa="0">eth2.3619</Device>
+</Topology>
+<Online>
+        <Device>eth1</Device>
+        <Device>rbd0</Device>
+	<Device>eth2.3619</Device>
+</Online>
+<Threads threads="2">
+</Threads>
+<File segment="2G">
+</File>

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+docker run \
+    --name bdelauncher \
+    -it --rm \
+    --network host \
+    -v /etc/grid-security:/etc/grid-security \
+    -v $(pwd)/launcher/bdelauncher.json:/usr/local/etc/bdeagent.json \
+    -v $(pwd)/mosquitto/ssl:/mosquitto/config/ssl \
+    -v $(pwd):/bdework \
+    --security-opt seccomp:unconfined \
+    --privileged \
+    publicregistry.fnal.gov/bigdata_express/bdeagent:HEAD-xenial \
+    $@
+

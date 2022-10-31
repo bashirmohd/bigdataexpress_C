@@ -1,0 +1,79 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "mqtt.bde.fnal.gov",
+            "port": 8883,
+            "cacert": "/usr/local/etc/bde/ca.crt"
+        },
+        "store": {
+            "db": "bde",
+            "host": "mongodb.bde.fnal.gov",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde",
+            "host": "influxdb.bde.fnal.gov",
+            "port": 8086
+        },
+        "programs": {
+            "iozone": "/usr/local/bin/iozone"
+        }
+    },
+    "modules":
+    {
+        "m1":
+        {
+            "name": "DTN Agent on bde1.fnal.gov",
+            "type": "DTN",
+
+            "data_folders": {
+                "path": ["/data1", "/data2" ],
+                "scan": true
+            },
+
+            "management_interface": "enp4s0f0",
+            "data_interfaces": [ "ens6.2" ],
+            "storage_interfaces": [ "" ],
+
+            "ignore_route_cmds": false,
+            "ignore_arp_cmds": false,
+            "use_hostname_for_control": false,
+
+            "use_expand_v2_parent_list": false,
+
+            "iozone": {
+                "enable": false
+            },
+
+            "checksum" : {
+                "threads": 256,
+                "file_size_threshold": 1000000000
+            },
+
+            "data_transfer_program":
+            {
+                "path": "/path/to/mdtmftp+/sbin/mdtm-ftp-server",
+                "args": [
+                    "-control-interface",
+                    "ip-of(&management_interface)",
+                    "-data-interface",
+                    "ip-of(&data_interfaces[0])",
+                    "-p",
+                    5001,
+                    "-password-file",
+                    "/opt/fnal/bde/config/mdtmftp+/password",
+                    "-c",
+                    "/opt/fnal/bde/config/mdtmftp+/server.conf",
+                    "-l",
+                    "/tmp/mdtmftp.log",
+                    "-log-level",
+                    "all"
+                ],
+                "env" : [
+                    { "GLOBUS_TCP_SOURCE_RANGE": "54000,64000" },
+                    { "GLOBUS_TCP_PORT_RANGE": "32000,34640" }
+                ]
+            }
+        }
+    }
+}

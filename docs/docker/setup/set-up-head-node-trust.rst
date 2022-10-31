@@ -1,0 +1,1 @@
+../../manual/setup/set-up-head-node-trust.rst

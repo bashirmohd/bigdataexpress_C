@@ -1,0 +1,13 @@
+{
+    "target": "00:00:00:00:00:00",
+    "cmd": "dtn_expand_and_group_v2",
+    "description": "file checksum, default algorithm",
+    "params": {
+        "src_path": ["/data/src/index.html"],
+        "dst_path": "/data2",
+        "group_size": 10485760,
+        "result_in_db": false,
+        "max_files": 10,
+        "checksum": { "compute" : true }
+    }
+}

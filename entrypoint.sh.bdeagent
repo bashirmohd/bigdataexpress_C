@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$HAVE_TELEGRAF" ]
+then
+	echo "HAVE_TELEGRAF is not set"
+else
+	echo "HAVE_TELEGRAF is set"
+	/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d &
+fi
+
+exec "$@"

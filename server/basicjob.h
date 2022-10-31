@@ -1,0 +1,5 @@
+#ifndef BDESERVER_BASICJOB_H
+#define BDESERVER_BASICJOB_H
+
+
+#endif

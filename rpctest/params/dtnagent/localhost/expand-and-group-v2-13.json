@@ -1,0 +1,21 @@
+{
+    "cmd" : "dtn_expand_and_group_v2",
+    "target" : "00:00:00:00:00:00",
+    "description": "directory, no checksum, with yet another target folder",
+    "params":
+    {
+        "checksum" :
+        {
+            "algorithm" : "sha1",
+            "compute" : false
+        },
+        "dst_path" : "/data/disk7/dst/",
+        "group_size" : 21474836480,
+        "max_files" : 2000,
+        "result_in_db" : false,
+        "src_path" :
+        [
+            "/data/src/linux-4.4.49/"
+        ]
+    }
+}

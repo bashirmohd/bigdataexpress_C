@@ -1,0 +1,32 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "yosemite.fnal.gov",
+            "port": 8883,
+            "cacert": "/opt/fnal/bde/certs/ca.pem"
+        },
+        "store": {
+            "db": "bde",
+            "host": "yosemite.fnal.gov",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde",
+            "host": "yosemite.fnal.gov",
+            "port": 8086
+        }
+    },
+    "modules": {
+        "m1": {
+            "type": "Launcher",
+            "name": "Launching Agent on yoesmite",
+            "id": "launcher-id",
+            "subprocess" : {
+                "type": "mdtm-ftp-client",
+                "ipv6": false,
+                "path": "/usr/local/mdtmftp+/current/bin/mdtm-ftp-client",
+                "args": [ "-vb", "-p", "8" ]
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "target": "f4:52:14:73:78:30",
+    "cmd" : "dtn_expand",
+    "params" : {
+        "files": ["/data1/linux-4.8.12"],
+        "user" : "sajith"
+    }
+}

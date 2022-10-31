@@ -1,0 +1,64 @@
+{
+    "agent": {
+        "mq_server": {
+            "cacert": "/home/fermilab/bde/etc/cert.pem",
+            "host": "180-147.research.maxgigapop.net",
+            "port": 5671
+        },
+        "store": {
+            "db": "bde",
+            "host": "180-147.research.maxgigapop.net",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde",
+            "host": "180-147.research.maxgigapop.net",
+            "port": 8086
+        }
+    },
+    "modules": {
+        "m1": {
+            "data_interfaces": [
+                "eth2"
+            ],
+            "management_interface": "eth2",
+            "name": "DTN Agent on 180-148.research.maxgigapop.net",
+            "type": "DTN",
+	    "ignore_route_cmds": true,
+	    "ignore_arp_cmds": true,
+            "data_folders": {
+                "path": [
+                    "/mnt/ceph1/bde"
+                ],
+                "scan": true
+            },
+            "local_storage_agent": {
+                "type": "LocalStoageAgent",
+                "iozone-executable": "/home/fermilab/bde/bin/iozone"
+            },
+            "data_transfer_program": {
+                "path": "/usr/local/mdtmftp+/current/sbin/mdtm-ftp-server",
+                "args": [
+                    "-control-interface",
+                    "ip-of(&management_interface)",
+                    "-data-interface",
+                    "ip-of(&data_interfaces[0])",
+                    "-p",
+                    5001,
+                    "-password-file",
+                    "/home/fermilab/bde/etc/mdtmftp+/password",
+                    "-c",
+                    "/home/fermilab/bde/etc/mdtmftp+/server.conf",
+                    "-l",
+                    "/tmp/mdtmftp.log",
+                    "-log-level",
+                    "all"
+                ],
+                "env": [
+                  { "GLOBUS_TCP_SOURCE_RANGE": "54000,64000" },
+                  { "GLOBUS_TCP_PORT_RANGE": "32000,34640" }
+                ]
+            }
+        }
+    }
+}

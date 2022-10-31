@@ -1,0 +1,10 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd": "dtn_delete_route",
+    "params":
+    {
+        "destination": "8.8.8.8",
+        "via": "131.225.2.200",
+        "dev" : "enp11s0f0"
+    }
+}

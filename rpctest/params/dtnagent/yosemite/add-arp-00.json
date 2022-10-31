@@ -1,0 +1,9 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd": "dtn_add_neighbor",
+    "params":
+    {
+        "ip": "8.8.8.8",
+        "mac" : "d8:67:d9:09:c6:40"
+    }
+}

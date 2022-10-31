@@ -1,0 +1,9 @@
+{
+    "cmd": "dtn_add_neighbor",
+    "params":
+    {
+        "ip": "192.2.2.1",
+        "mac": "68:05:ca:2e:77:18"
+    },
+    "target": "0c:c4:7a:ab:63:bc"
+}

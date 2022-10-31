@@ -1,0 +1,11 @@
+{
+    "name" : "Test SSA Scanner",
+    "type" : "SSA Scanner",
+    "id"   : "2",
+    "iozone-executable": "/usr/local/bin/iozone",
+    "data_folders" : {
+        "path" : "/storage/lustre"
+     },
+     "OSTs" : "3-4",
+     "sleep time": "1"
+}

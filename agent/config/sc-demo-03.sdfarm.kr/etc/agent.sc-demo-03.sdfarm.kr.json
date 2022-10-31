@@ -1,0 +1,63 @@
+{
+    "agent": {
+        "mq_server": {
+            "cacert": "/home/sctest/bde/etc/cert.pem",
+            "host": "sc-demo-01.sdfarm.kr",
+            "port": 5671
+        },
+        "store": {
+            "db": "bde",
+            "host": "sc-demo-01.sdfarm.kr",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde",
+            "host": "sc-demo-01.sdfarm.kr",
+            "port": 8086
+        }
+    },
+    "modules": {
+        "m1": {
+            "data_interfaces": [
+                "ens801.2"
+		    ],
+            "management_interface": "eno1",
+            "storage_interfaces": "",
+            "name": "KISTI DTN3 BDE Agent",
+            "type": "DTN",
+            "data_folders": {
+                "path": [
+                    "/sc_demo"
+                ],
+                "scan": true
+            },
+            "local_storage_agent": {
+                "type": "LocalStoageAgent",
+                "iozone-executable": "/home/sctest/bde/bin/iozone"
+            },
+            "data_transfer_program": {
+                "path": "/usr/local/mdtmftp+/current/sbin/mdtm-ftp-server",
+                "args": [
+		    "-control-interface",
+		    "134.75.125.79",
+                    "-data-interface",
+                    "192.2.2.9",
+                    "-p",
+                    5001,
+                    "-password-file",
+                    "/home/sctest/bde/etc/mdtmftp+/password",
+                    "-c",
+                    "/home/sctest/bde/etc/mdtmftp+/server.conf",
+                    "-l",
+                    "/tmp/mdtmftp.log",
+                    "-log-level",
+                    "all"
+                ],
+                "env": [
+                  { "GLOBUS_TCP_SOURCE_RANGE": "62000,64640" },
+                  { "GLOBUS_TCP_PORT_RANGE": "32000,34640" }
+                ]
+            }
+        }
+    }
+}

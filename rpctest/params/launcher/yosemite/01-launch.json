@@ -1,0 +1,25 @@
+{
+    "cmd": "launch",
+    "target": "launcher-agent",
+    "params": {
+        "files": [
+            [ "/data1/linux-4.13.4/", "/sc_demo/linux-4.13.4/", 0, 0 ],
+            [ "/data1/linux-4.13.4/", "/sc_demo/linux-4.13.4/", 0, 0 ]
+        ],
+        "ip_dst": "bde3.fnal.gov",
+        "ip_src": "bde1.fnal.gov",
+        "port_dst": 5001,
+        "port_range_dst": {
+            "max": 6000,
+            "min": 5000
+        },
+        "port_range_src": {
+            "max": 6000,
+            "min": 5000
+        },
+        "port_src": 5001,
+        "task": "669dc60e-364f-471e-9b22-e9743968a8de",
+        "url_scheme_dst": 1,
+        "url_scheme_src": 1
+    }
+}

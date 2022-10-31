@@ -1,0 +1,7 @@
+{
+    "cmd": "mld_rate",
+    "target": "launcher-agent",
+    "params": {
+        "task": "ae658f98-8e24-4f32-adb0-762fcbe150a7"
+    }
+}

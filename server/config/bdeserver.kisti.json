@@ -1,0 +1,30 @@
+{
+   "bde" : {
+      "agents" : {
+         "ld" : {
+            "authentication" : "cert",
+            "checksum_enable" : false,
+            "queue" : "launcher",
+            "type" : "mdtm",
+            "write_command_files" : false
+         },
+         "sdn" : {
+            "enable" : true,
+            "queue" : "sdnagent_consumer_queue",
+            "rpc_timeout_s" : 10
+         }
+      },
+      "mq_server" : {
+         "cacert" : "/etc/rabbitmq/ca/cacert.pem",
+         "host" : "localhost",
+         "port" : 5671,
+         "queue" : "bdeserver"
+      },
+      "store" : {
+         "db" : "bde",
+         "host" : "localhost",
+         "port" : 27017
+      }
+   }
+}
+

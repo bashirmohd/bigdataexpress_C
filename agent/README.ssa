@@ -1,0 +1,60 @@
+BDE Shared Storage
+
+A. Design
+
+It consists two modules: Shared Storage Agent (SSA) and Scanner.
+The former communicats with BDE server and performs various commands.
+The latter scans the file system bandwidth in parallel.
+ 
+B. How to run
+
+1. On bde1, 
+
+go to the build directory
+
+[root@bde1 bigdata-express-server]# cd build/agent/
+
+run scannerd
+./scannerd -c config/scannerd.bde1.json
+
+2. Similarly on bd2,
+
+[root@bde2 bigdata-express-server]# cd build/agent/
+
+run scannerd
+
+./scannerd -c config/scannerd.bde2.json
+
+3. On bde1,
+
+starts the SSA,
+
+./bdeagent -c config/bdeagent.bde1.ssa.json
+
+
+C. Notes on JSON 
+
+1. An example scanner JSON.
+{
+    "name" : "Test SSA Scanner",
+    "type" : "SSA Scanner",
+    "id"   : "2",
+    "iozone-executable": "/usr/local/bin/iozone",
+    "data_folders" : {
+        "path" : "/storage/lustre"
+     },
+     "OSTs" : "3-4",
+     "sleep time": "1"
+}
+
+Different scanners are required to be assign different id, 
+which can be a number or ascii string. Otherwise, the scan
+results would be overwritten by other scanners.
+
+Scanners and shared storage agent are required to be assigned
+the same data_folders as of now. The path of data_folders
+is the root dir of the file system.
+
+Different scanners should scan different ranges of OSTs.
+
+The sleep time is the duration (minutes) between two scans.

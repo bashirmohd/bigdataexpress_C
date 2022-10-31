@@ -1,0 +1,29 @@
+{
+    "cmd": "launch",
+    "target": "launcher-agent",
+    "mode": 1,
+    "params": {
+        "files": [
+            [ "/data1/src/10G.bin", "/home/data1/dst/10G.bin", 0, 0 ]
+        ],
+        "ip_src": "bde1.fnal.gov",
+        "port_src": 5001,
+        "ip_dst": "bde2.fnal.gov",
+        "port_dst": 5001,
+        "port_range_dst": {
+            "max": 6000,
+            "min": 5000
+        },
+        "port_range_src": {
+            "max": 6000,
+            "min": 5000
+        },
+        "task": "99e10bec-acf4-4845-a6ff-363bd145bacb",
+        "url_scheme_dst": 0,
+        "url_scheme_src": 0,
+        "usr_src": "sajith",
+        "pwd_src": "secret",
+        "usr_dst": "sajith",
+        "pwd_dst": "secret"
+    }
+}

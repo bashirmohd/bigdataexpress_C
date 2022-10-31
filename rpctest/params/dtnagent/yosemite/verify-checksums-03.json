@@ -1,0 +1,12 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd": "dtn_verify_checksums",
+    "params": {
+        "algorithm": "sha1",
+        "checksums": [
+            [ "/DATA/texts/frankenstein.txt", "1a8a913e74816b29c6fc723afae696b25977e84c" ],
+            [ "/DATA/texts/pride_and_prejudice.txt", "ee19094b7f64279891b6051339e17d5ae6b6e92a" ],
+            [ "/DATA/texts/tom_sawyer.txt", "120cc38d77ee1a800042fe127f6d616c11741883" ]
+        ]
+    }
+}

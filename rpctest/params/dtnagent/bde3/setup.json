@@ -1,0 +1,15 @@
+{
+    "target": "f4:52:14:73:78:30",
+    "cmd": "dtn_setup",
+    "params":
+    {
+        "task": "test-task-bde3",
+        "direction": "out-bound",
+        "target_site": "fnal.gov",
+        "target_dtn": "bde3.fnal.gov",
+        "rate": 1000,
+        "interface": "ens4",
+        "vlan": 5,
+        "ip": "192.5.5.3"
+    }
+}

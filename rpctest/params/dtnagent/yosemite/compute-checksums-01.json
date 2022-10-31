@@ -1,0 +1,9 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd": "dtn_compute_checksums",
+    "params": {
+        "algorithm": "md5",
+        "src_path": "/DATA/texts/",
+        "dst_path": "/data1/"
+    }
+}

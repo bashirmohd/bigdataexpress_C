@@ -1,0 +1,73 @@
+#introduction ul {
+    margin-bottom: 1em !important;
+}
+
+#design-notes li {
+    margin-bottom: 1em;
+}
+
+.figure .caption {
+    text-align: center;
+    font-style: italic;
+    font-size: smaller;
+    text-indent: 0;
+}
+
+.figure {
+    margin: 0.5em;
+    padding: 0.5em;
+    width: 100%;
+}
+
+.figure img {
+    margin-bottom: 1em;
+}
+
+#using-bde-web-portal img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.link,
+.linkseq {
+    color: #3276b1;
+    font-style: italic;
+}
+
+/*
+.link:after {
+    font-family: FontAwesome;
+    content: "";
+    color: #b3b3b3;
+    vertical-align: super;
+    font-size: 60%;
+    margin: 0.2em
+}
+*/
+
+.button {
+    border: 1px solid #3276b1;
+    border-radius: 3px;
+    background-color: white;
+
+    padding: 0px 10px;
+    margin: 0px 2px;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 90%;
+    color: #3276b1;
+    font-style: italic;
+    font-weight: normal;
+
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cn {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas,
+                 "Liberation Mono", "Courier New", Courier,
+                 monospace;
+    font-size: smaller;
+}

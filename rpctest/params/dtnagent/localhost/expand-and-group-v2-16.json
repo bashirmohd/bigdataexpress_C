@@ -1,0 +1,18 @@
+{
+    "cmd" : "dtn_expand_and_group_v2",
+    "target" : "00:00:00:00:00:00",
+    "description": "many files, no checksum",
+    "params" :
+    {
+        "dst_path" : "/sc_demo_ssd/",
+        "group_size" : 2199023255552,
+        "max_files" : 2000,
+        "result_in_db" : false,
+        "src_path" :
+        [
+            "/data/src/texts/test/one.txt",
+            "/data/src/texts/tom_sawyer.txt",
+            "/data/src/texts/frankenstein.txt"
+        ]
+    }
+}

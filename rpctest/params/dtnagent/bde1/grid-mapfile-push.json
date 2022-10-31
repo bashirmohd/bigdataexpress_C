@@ -1,0 +1,9 @@
+{
+    "target": "0c:c4:7a:ab:63:7e",
+    "cmd": "dtn_push_gridmap_entries",
+    "params": {
+        "map": [ { "dn": "/DC=org/DC=cilogon/C=US/O=Fermilab/OU=People/CN=Wenji Wu/CN=UID:wenji", "ln": "wenji" },
+                 { "dn": "/DC=org/DC=cilogon/C=US/O=Fermilab/OU=People/CN=Qiming Lu/CN=UID:qlu", "ln": "qlu" }
+               ]
+    }
+}

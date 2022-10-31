@@ -1,0 +1,16 @@
+# Typically installed in /lib/systemd/system/.
+
+[Unit]
+Description=Bigdata Express Web Portal
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /path/to/portal/app.js --port 5000
+# User=bde
+TimeoutStopSec=10
+KillMode=mixed
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

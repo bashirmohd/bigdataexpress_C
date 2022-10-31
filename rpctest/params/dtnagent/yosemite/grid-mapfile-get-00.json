@@ -1,0 +1,4 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd" : "dtn_get_gridmap_entries"
+}

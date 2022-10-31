@@ -1,0 +1,29 @@
+{
+    "cmd": "launch",
+    "target": "launcher-agent",
+    "params": {
+        "files": [
+            [ "/data1/src/linux-4.13.4.tar.xz", "/home/data1/dst/linux-4.13.4.tar.xz", 100581252, 0 ],
+            [ "/data1/src/linux-4.4.49/", "/home/data1/dst/linux-4.4.49/", 0, 0 ]
+        ],
+        "ip_src": "bde1.fnal.gov",
+        "ip_dst": "bde2.fnal.gov",
+        "port_dst": 5001,
+        "port_range_dst": {
+            "max": 6000,
+            "min": 5000
+        },
+        "port_range_src": {
+            "max": 6000,
+            "min": 5000
+        },
+        "port_src": 5001,
+        "task": "6b0a7145-4673-4e44-ad85-fb6d9b2db239",
+        "url_scheme_dst": 0,
+        "url_scheme_src": 0,
+        "usr_src": "sajith",
+        "pwd_src": "secret",
+        "usr_dst": "sajith",
+        "pwd_dst": "secret"
+    }
+}

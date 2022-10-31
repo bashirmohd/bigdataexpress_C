@@ -1,0 +1,9 @@
+{
+    "target": "0c:c4:7a:ab:63:7e",
+    "cmd": "dtn_expand_and_group_v2",
+    "params": {
+        "src_path": ["/data1/linux-4.13.4"],
+        "dst_path": "/data2",
+        "group_size": 322122
+    }
+}

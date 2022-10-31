@@ -1,0 +1,7 @@
+{
+    "cmd": "status",
+    "target": "launcher-agent",
+    "params": {
+        "task": "4fa5e587-58c5-4d11-97ef-53e4c6841abc"
+    }
+}

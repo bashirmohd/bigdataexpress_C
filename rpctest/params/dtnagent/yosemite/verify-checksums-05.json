@@ -1,0 +1,10 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd": "dtn_verify_checksums",
+    "params": {
+        "algorithm": "sha1",
+        "checksums": [
+            [ "/DATA/texts/no-such-file.txt", "no-checksum" ]
+        ]
+    }
+}

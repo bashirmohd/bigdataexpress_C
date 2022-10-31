@@ -1,0 +1,40 @@
+{
+    "agent": {
+        "mq_server": {
+            "cacert": "/opt/fnal/bde/certs/cert-yosemite.pem",
+            "host": "yosemite.fnal.gov",
+            "port": 5671
+        },
+        "store": {
+            "db": "bde",
+            "host": "yosemite.fnal.gov",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde",
+            "host": "yosemite.fnal.gov",
+            "port": 8086
+        }
+    },
+    "modules": {
+        "m1": {
+            "data_interfaces": [
+                "enp4s0f0"
+            ],
+            "management_interface": "enp4s0f0",
+            "storage_interfaces": "ib0",
+            "name": "Test DTN Agent",
+            "type": "DTN",
+            "data_folders": {
+                "path": [
+                    "/scratch"
+                ],
+                "scan": true
+            },
+            "local_storage_agent": {
+                "type": "LocalStoageAgent",
+                "iozone-executable": "/usr/local/bin/iozone"
+            }
+        }
+    }
+}

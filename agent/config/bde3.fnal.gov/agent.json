@@ -1,0 +1,65 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "yosemite.fnal.gov",
+            "port": 1883,
+            "psk_id": "easy",
+            "psk": "12345"
+        },
+        "store": {
+            "db": "bde",
+            "host": "yosemite.fnal.gov",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde",
+            "host": "yosemite.fnal.gov",
+            "port": 8086
+        }
+    },
+    "modules": {
+        "m1": {
+            "data_interfaces": [
+                "ens6f1"
+            ],
+            "management_interface": "ens6f1",
+            "name": "DTN Agent on bde3.fnal.gov",
+            "type": "DTN",
+            "ignore_route_cmds":true,
+            "ignore_arp_cmds": true,
+            "data_folders": {
+                "path": [
+                    "/data1"
+                ],
+                "scan": true
+            },
+            "local_storage_agent": {
+                "type": "LocalStoageAgent",
+                "iozone-executable": "/home/sajith/bde/bin/iozone"
+            },
+            "data_transfer_program": {
+                "path": "/usr/local/mdtmftp+/current/sbin/mdtm-ftp-server",
+                "args": [
+                    "-control-interface",
+                    "ip-of(&management_interface)",
+                    "-data-interface",
+                    "ip-of(&data_interfaces[0])",
+                    "-p",
+                    5001,
+                    "-password-file",
+                    "/home/sajith/bde/etc/mdtmftp+/password",
+                    "-c",
+                    "/home/sajith/bde/etc/mdtmftp+/server.conf",
+                    "-l",
+                    "/tmp/mdtmftp.log",
+                    "-log-level",
+                    "all"
+                ],
+                "env": [
+                  { "GLOBUS_TCP_SOURCE_RANGE": "64000,64640" },
+                  { "GLOBUS_TCP_PORT_RANGE": "32000,34640" }
+                ]
+            }
+        }
+    }
+}

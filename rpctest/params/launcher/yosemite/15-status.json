@@ -1,0 +1,8 @@
+{
+    "cmd": "mld_status",
+    "target": "launcher-agent",
+    "mode": 1,
+    "params": {
+        "task" : "FD87-05F0-47DE-CA38-b"
+    }
+}

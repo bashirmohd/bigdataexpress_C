@@ -1,0 +1,11 @@
+{
+    "target": "00:00:00:00:00:00",
+    "cmd": "dtn_verify_checksums",
+    "params": {
+        "algorithm": "sha1",
+        "checksums": [
+            [ "/data/src/linux-4.4.49",
+              "b10bbfce3d9df115d056e1cc375c1dfc87875e5b" ]
+        ]
+    }
+}

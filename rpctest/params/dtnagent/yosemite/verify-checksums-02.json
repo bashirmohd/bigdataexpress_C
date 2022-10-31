@@ -1,0 +1,10 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd": "dtn_verify_checksums",
+    "params": {
+        "algorithm": "blake2b",
+        "checksums": [
+            [ "/DATA/texts/tom_sawyer.txt", "035f3501a3502554264bf0171f3af8fe" ]
+        ]
+    }
+}

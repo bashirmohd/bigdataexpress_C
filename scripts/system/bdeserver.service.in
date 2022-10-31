@@ -1,0 +1,16 @@
+[Unit]
+Description=Bigdata Express Server/Scheduler
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/var/lib/bdeserver/run/bdeserver.pid
+ExecStart=@CMAKE_INSTALL_PREFIX@/bin/bdeserver -d
+#ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/10 --pidfile /var/lib/mcserver/run/mcserver.pid
+# User=bde
+TimeoutStopSec=10
+KillMode=mixed
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

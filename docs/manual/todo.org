@@ -1,0 +1,93 @@
+* DONE BDE portal: check appearance of lists
+CLOSED: [2019-08-13 Tue 10:12]
+* DONE BDE portal: edit "->" appearance
+CLOSED: [2019-08-08 Thu 17:44]
+
+* DONE Just copy conf.py; remove conf.py.in
+CLOSED: [2019-08-08 Thu 17:44]
+
+* DONE Style external URLs as in mdtm manual
+CLOSED: [2019-08-08 Thu 17:46]
+* DONE Clarify bde server binary installation
+CLOSED: [2019-08-09 Fri 11:56]
+
+* DONE Clarify bde agent binary installation
+CLOSED: [2019-08-09 Fri 12:33]
+
+* DONE Launcher agent: clarify agent and mdtmftp+ client binary locations
+CLOSED: [2019-08-09 Fri 11:55]
+
+* DONE Launcher agent: clarify conf file location.
+CLOSED: [2019-08-09 Fri 11:56]
+
+* DONE Security: install OSG, IGTF, CILogon certs on head node
+CLOSED: [2019-08-15 Thu 14:20]
+
+* DONE Grid security: Mention the CAs we support
+CLOSED: [2019-08-15 Thu 14:20]
+
+* DONE How to obtain and install CA certificates
+CLOSED: [2019-08-15 Thu 14:20]
+
+* DONE Use separate sections for grid security setup for head node and DTNs.
+CLOSED: [2019-08-13 Tue 10:12]
+* DONE Portal: highlight portal links with hints
+CLOSED: [2019-08-09 Fri 15:55]
+* DONE Portal: crop images where necessary
+CLOSED: [2019-08-13 Tue 10:12]
+* DONE Portal: blur email addresses and user names
+CLOSED: [2019-08-13 Tue 10:12]
+* DONE Copying mdtm software
+CLOSED: [2019-08-21 Wed 09:34]
+* DONE DTN: max files tune (3000, 5000)
+CLOSED: [2019-08-21 Wed 15:46]
+* DONE DTN: tune TCP stack (look for esnet link - DTN Tuning)
+CLOSED: [2019-08-21 Wed 15:46]
+* DONE DB name (MongoDB) is configurable
+CLOSED: [2019-08-23 Fri 14:37]
+* DONE GSISSH - remove grid-proxy-init
+CLOSED: [2019-08-21 Wed 09:34]
+* DONE GSISSH - add cert-user mapping to mapfile
+CLOSED: [2019-08-21 Wed 15:03]
+* DONE Four sections of setup:
+CLOSED: [2019-08-21 Wed 15:03]
+  - [X] checklist, a table perhaps
+  - [X] set up head node
+  - [X] set up DTNs
+  - [X] test connections: MQTT, MongoDB, InfluxDB, certs.  Show screen
+    captures.
+* DONE Firewall
+CLOSED: [2019-08-22 Thu 17:44]
+  - External: open ports
+  - Internal: open ports
+  - Between DTNs
+* TODO BDE configuration file section: describe each item.
+* TODO DTN: root and non-root configuration
+* DONE Checks to "On head node", "On the DTN"
+CLOSED: [2019-08-21 Wed 13:29]
+* DONE Checks on DTN: use nc to check MQTT, MongoDB, InfluxDB
+CLOSED: [2019-08-21 Wed 14:40]
+* DONE BDE Server/Launcher/Agent : startup logs
+CLOSED: [2019-08-23 Fri 15:41]
+* DONE Remove references to Ciena
+CLOSED: [2019-08-23 Fri 15:23]
+* DONE Separate web portal manual
+CLOSED: [2019-08-22 Thu 10:46]
+* DONE Remove diagram from "check wiring"
+CLOSED: [2019-08-21 Wed 13:29]
+* DONE High level notes on DTN/head node checks
+CLOSED: [2019-08-21 Wed 17:25]
+* DONE Update mdtmftp+ banner in checks
+CLOSED: [2019-08-21 Wed 17:25]
+* DONE Diagram: Telegraph, X.509 on head node + DTN
+CLOSED: [2019-08-22 Thu 17:11]
+* DONE Move gsissh to check wires, make it optional
+CLOSED: [2019-08-23 Fri 14:12]
+* DONE Firewall: make a table
+CLOSED: [2019-08-22 Thu 17:45]
+* DONE DTN: reach remote ports
+CLOSED: [2019-08-23 Fri 14:12]
+* DONE Portal: add a note about using certificates
+CLOSED: [2019-09-13 Fri 16:18]
+* TODO MQTT - set up ssl, certs
+* TODO BDE server setup: add cacert for MQTT

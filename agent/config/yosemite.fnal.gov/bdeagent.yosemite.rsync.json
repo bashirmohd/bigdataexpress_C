@@ -1,0 +1,45 @@
+/*
+ * This configuration file is used for testing (esp. process
+ * monitoring) on yosemite.fnal.gov and nothing else.
+ *
+ * Yosemite is not a designated DTN and please do not use it as one.
+ *
+ */
+
+{
+    "agent": {
+        "mq_server": {
+            "host": "yosemite.fnal.gov",
+            "port": 8883,
+            "cacert": "/usr/local/etc/bde/ca.crt"
+        },
+        "store": {
+            "db": "bde",
+            "host": "yosemite.fnal.gov",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde_test",
+            "host": "yosemite.fnal.gov",
+            "port": 8086
+        }
+    },
+    "modules": {
+        "m1": {
+            "data_interfaces": [
+                "enp11s0f0"
+            ],
+            "management_interface": "enp11s0f0",
+            "name": "Test DTN Agent",
+            "type": "DTN",
+            "data_transfer_program": {
+                "path": "/usr/bin/rsync",
+                "args": [
+                    "-av",
+                    "/usr/share/man/en/man2",
+                    "/tmp/bde-process-rsync-test"
+                ]
+            }
+        }
+    }
+}

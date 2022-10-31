@@ -1,0 +1,8 @@
+{
+    "target": "0c:c4:7a:ab:63:7e",
+    "cmd": "dtn_list",
+    "params": {
+        "path": "/data1/"
+    }
+}
+

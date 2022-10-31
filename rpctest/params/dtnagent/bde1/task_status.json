@@ -1,0 +1,7 @@
+{
+    "target": "0c:c4:7a:ab:63:7e",
+    "cmd": "dtn_task_status",
+    "params": {
+        "task": "test-task-bde1"
+    }
+}

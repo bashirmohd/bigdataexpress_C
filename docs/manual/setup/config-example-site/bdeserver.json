@@ -1,0 +1,39 @@
+{
+   "bde" : {
+      "agents" : {
+         "ld" : {
+            "auth_password" : "secret",
+            "auth_username" : "test",
+            "authentication" : "cert",
+            "checksum_algorithm" : "sha1",
+            "checksum_enable" : true,
+            "group_size" : "20GB",
+            "write_command_files" : false
+         }
+      },
+      "mq_server" : {
+         "host" : "localhost",
+         "port" : 1883,
+         "queue" : "bdeserver"
+      },
+      "store" : {
+         "db" : "bde",
+         "host" : "localhost",
+         "port" : 27017
+      },
+      "network" : {
+         "wan_static" : {
+            "paths" : [{
+               "remote_site" : "Site-B",
+               "circuits" : [{
+                  "local_vlan_id" : 2039,
+		  "remote_vlan_id" : 2039,
+		  "bandwidth" : 10000,
+		  "dtns" : [ ]
+               }]
+            }]
+         }
+      }
+   }
+}
+

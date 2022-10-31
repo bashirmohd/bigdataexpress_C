@@ -1,0 +1,58 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "head-node.example.net",
+            "port": 1883
+        },
+        "store": {
+            "host": "head-node.example.net",
+            "port": 27017,
+            "db": "bde"
+        },
+        "tsdb": {
+            "host": "head-node.example.net",
+            "port": 8086,
+            "db": "bde"
+        },
+        "programs" : {
+            "iozone": "/usr/local/bin/iozone"
+        }
+    },
+    "modules": {
+        "m1": {
+            "name": "DTN Agent on dtn1.example.net",
+            "type": "DTN",
+            "management_interface": "eth1",
+            "data_interfaces": [ "eth2" ],
+	    "ignore_route_cmds": true,
+	    "ignore_arp_cmds": true,
+            "data_folders": {
+                "path": [ "/data" ],
+                "scan": true
+            },
+            "data_transfer_program": {
+                "path": "/usr/local/mdtmftp+/current/sbin/mdtm-ftp-server",
+                "args": [
+                    "-control-interface",
+                    "ipv6-of(&management_interface)",
+                    "-data-interface",
+                    "ipv6-of(&data_interfaces[0])",
+                    "-p",
+                    5001,
+                    "-password-file",
+                    "/etc/mdtm/password",
+                    "-c",
+                    "/etc/mdtm/server.conf",
+                    "-l",
+                    "/tmp/mdtmftp.log",
+                    "-log-level",
+                    "all"
+                ],
+                "env": [
+                  { "GLOBUS_TCP_SOURCE_RANGE": "54000,64000" },
+                  { "GLOBUS_TCP_PORT_RANGE": "32000,34640" }
+                ]
+            }
+        }
+    }
+}

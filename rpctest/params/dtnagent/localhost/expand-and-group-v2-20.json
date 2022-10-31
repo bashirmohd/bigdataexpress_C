@@ -1,0 +1,21 @@
+{
+    "cmd" : "dtn_expand_and_group_v2",
+    "target" : "00:00:00:00:00:00",
+    "description": "folder + files under different folders, with checksum",
+    "params" :
+    {
+        "dst_path" : "/data/dst/inner",
+        "group_size" : 20000000000,
+        "max_files": 1000000,
+        "src_path" :
+        [
+            "/data/src/texts/test/one.txt",
+            "/data/src/texts/test/under/two.txt",
+            "/data/src/linux-4.4.49",
+            "/data/src/linux-4.4.49.tar.xz"
+        ],
+        "checksum": {
+            "compute": true
+        }
+    }
+}

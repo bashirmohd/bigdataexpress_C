@@ -1,0 +1,9 @@
+{
+    "cmd": "dtn_start_pong",
+    "target": "0c:c4:7a:ab:63:7e",
+    "params":
+    {
+        "ip": "192.5.5.1",
+        "port": 5555
+    }
+}

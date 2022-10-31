@@ -1,0 +1,28 @@
+{
+    "cmd": "launch",
+    "target": "launcher-agent",
+    "params": {
+        "files": [
+            [ "/data/src/1G.bin", "/data/dst/1G.bin", 1073741824, 0 ]
+        ],
+        "ip_src": "localhost",
+        "port_src": 5001,
+        "ip_dst": "localhost",
+        "port_dst": 6001,
+        "port_range_dst": {
+            "max": 6000,
+            "min": 5000
+        },
+        "port_range_src": {
+            "max": 6000,
+            "min": 5000
+        },
+        "task": "776a9062-6ad5-4bcf-bcbb-e38e2778964d",
+        "url_scheme_dst": 0,
+        "url_scheme_src": 0,
+        "usr_src": "sajith",
+        "pwd_src": "secret",
+        "usr_dst": "sajith",
+        "pwd_dst": "secret"
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "localhost",
+            "port": 8883,
+            "cacert": "/etc/mosquitto/ca/ca.crt"
+        },
+        "store": {
+            "host": "localhost",
+            "port": 27017,
+            "db": "bde"
+        },
+        "tsdb": {
+            "host": "localhost",
+            "port": 8086,
+            "db": "bde"
+        }
+    },
+    "modules": {
+        "m1": {
+            "type": "Launcher",
+            "name": "Launching daemon on idli.localdomain",
+            "id": "launcher-id",
+            "subprocess" : {
+                "type": "mdtm-ftp-client",
+                "queues": {
+                    "bde_server_queue": "bdeserver"
+                },
+                "path": "/usr/local/mdtmftp+/current/bin/mdtm-ftp-client",
+                "args": [ "-vb", "-p", "16" ]
+            }
+        }
+    }
+}
+

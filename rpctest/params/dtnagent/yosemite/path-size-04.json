@@ -1,0 +1,8 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd" : "dtn_path_size",
+    "params" : {
+        "path": "/"
+    }
+}
+

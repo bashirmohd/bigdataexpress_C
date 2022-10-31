@@ -1,0 +1,42 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "yosemite.fnal.gov",
+            "port": 8883,
+            "cacert": "/usr/local/etc/bde/ca.crt"
+        },
+        "store": {
+            "db": "bde",
+            "host": "yosemite.fnal.gov",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde_test",
+            "host": "yosemite.fnal.gov",
+            "port": 8086
+        }
+    },
+    "modules": {
+        "m1": {
+            "type": "Launcher",
+            "name": "Launching daemon on yoesmite",
+            "id": "launcher-id",
+            "subprocess" : {
+                "type": "mdtm-ftp-client",
+                "queues": {
+                    "bde_server_queue": "bdeserver",
+                    "mdtm_listen_queue": "mdtm-listen-launcher",
+                    "mdtm_report_queue": "mdtm-report-launcher"
+                },
+                "path": "/usr/local/mdtmftp+/current/bin/mdtm-ftp-client",
+                "args": [ "-vb", "-p", "4" ],
+                "env": [
+                    { "ENVVAR": "ENVVAL" }
+                ],
+                "psk": "12345",
+                "psk_id": "bde"
+            }
+        }
+    }
+}
+

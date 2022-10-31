@@ -1,0 +1,7 @@
+{
+    "target": "00:00:00:00:00:00",
+    "cmd": "dtn_status",
+    "params": {
+        "interface": "lo"
+    }
+}

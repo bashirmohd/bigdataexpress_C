@@ -1,0 +1,57 @@
+{
+   "bde" : {
+      "agents" : {
+         "ld" : {
+            "auth_password" : "secret",
+            "auth_username" : "test",
+            "authentication" : "cert",
+            "checksum_algorithm" : "sha1",
+            "checksum_enable" : false,
+            "group_size" : "20GB",
+            "write_command_files" : false
+         }
+      },
+      "network" : {
+          "lan" : {
+              "type" : "AmoebaNet",
+              "dtns" : ["host1.example.com", "host2.example.com"]
+          },
+          "wan_static" : {
+              "paths" : [{
+                  "remote_site" : "DESTINATION_SITE",
+                  "circuits" : [{
+                      "local_vlan_id" : 1662,
+                      "remote_vlan_id" : 1662,
+                      "bandwidth" : 10000,
+                  }]
+              }]
+          },
+          "wan_dynamic" : {
+              "sense" : {
+                  "auth" : "https://k152.maxgigapop.net:8543/auth/realms/StackV/protocol/openid-connect/token",
+                  "host" : "https://179-132.research.maxgigapop.net:8443/StackV-web/restapi/sense/service",
+                  "username" : "username",
+                  "password" : "password",
+                  "client_id" : "client_id",
+                  "client_secret" : "client_secret"
+              },
+              "stps" : [{
+                  "name" : "STP_name_string",
+                  "local_vlan_constraints" : "any",
+                  "dtns" : ["host1.example.com"]
+              }]
+          }
+      },
+      "mq_server" : {
+         "host" : "localhost",
+         "port" : 8883,
+         "queue" : "bdeserver",
+         "cacert": "/etc/ssl/mqtt-ca.crt"
+      },
+      "store" : {
+         "db" : "bde",
+         "host" : "localhost",
+         "port" : 27017
+      }
+   }
+}

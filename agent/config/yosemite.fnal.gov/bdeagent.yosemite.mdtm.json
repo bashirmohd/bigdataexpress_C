@@ -1,0 +1,61 @@
+/*
+ * This configuration file is used for testing bde agent on
+ * yosemite.fnal.gov and nothing else.
+ *
+ * Yosemite is not a designated DTN and please do not use it as one.
+ *
+ */
+{
+    "agent": {
+        "mq_server": {
+            "host": "yosemite.fnal.gov",
+            "port": 8883,
+            "cacert": "/usr/local/etc/bde/ca.crt"
+        },
+        "store": {
+            "db": "bde",
+            "host": "yosemite.fnal.gov",
+            "port": 27017
+        },
+        "tsdb": {
+            "db": "bde_test",
+            "host": "yosemite.fnal.gov",
+            "port": 8086
+        }
+    },
+    "modules": {
+        "m1": {
+            "data_interfaces": [
+                "enp11s0f0"
+            ],
+            "management_interface": "enp11s0f0",
+            "name": "Test DTN Agent",
+            "type": "DTN",
+            "data_transfer_program": {
+                "path": "/usr/local/mdtmftp+/current/sbin/mdtm-ftp-server",
+                "args": [
+                    "-data-interface",
+                    "ip-of(&data_interfaces[0])",
+                    "-control-interface",
+                    "ip-of(&management_interface)",
+                    "-p",
+                    6001,
+                    "-password-file",
+                    "/opt/fnal/bde/config/mdtmftp+/password",
+                    "-c",
+                    "/opt/fnal/bde/config/mdtmftp+/server.conf",
+                    "-l",
+                    "/tmp/mdtmftp.log",
+                    "-log-level",
+                    "all"
+                ],
+                "env": [
+                    { "GLOBUS_TCP_SOURCE_RANGE": "55000,65000" },
+                    { "GLOBUS_TCP_PORT_RANGE": "32000,34640" },
+                    { "LD_LIBRARY_PATH": "/usr/local/mdtmftp+/current/lib:/usr/local/mdtmftp+/current/lib64" }
+                ]
+            }
+        }
+    }
+}
+

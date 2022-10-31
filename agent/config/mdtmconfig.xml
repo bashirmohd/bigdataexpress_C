@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no" ?>
+<Topology>
+  <Device type="Block" numa="0">sda</Device>
+  <Device type="Network" numa="0">lo</Device>
+</Topology>
+<Online>
+  <Device>sda</Device>
+  <Device>lo</Device>
+</Online>
+<Threads threads="2">
+  <Device type="Block" threads="1">sda</Device>
+  <Device type="Network" threads="1">lo</Device>
+</Threads>
+<File segment="2G">
+</File>
+

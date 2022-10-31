@@ -1,0 +1,33 @@
+{
+    "agent": {
+        "mq_server": {
+            "host": "localhost",
+            "port": 1883,
+            "queue": "launcher"
+        },
+        "store": {
+            "host": "localhost",
+            "port": 27017,
+            "db": "bde"
+        },
+        "tsdb": {
+            "host": "localhost",
+            "port": 8086,
+            "db": "bde"
+        }
+    },
+    "modules": {
+        "m1": {
+            "type": "Launcher",
+            "name": "Launching daemon on head.site-a.net",
+            "subprocess" : {
+                "type": "mdtm-ftp-client",
+                "queues": {
+                    "bde_server_queue": "bdeserver"
+                },
+                "path": "/usr/local/mdtmftp+/current/bin/mdtm-ftp-client",
+                "args": [ "-vb", "-p", "16" ]
+            }
+        }
+    }
+}

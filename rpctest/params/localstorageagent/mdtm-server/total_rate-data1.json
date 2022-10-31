@@ -1,0 +1,5 @@
+{
+    "target": "00:25:90:5b:06:c4|/dev/sda1",
+    "cmd": "ls_estimate_total_rate",
+    "params": { }
+}

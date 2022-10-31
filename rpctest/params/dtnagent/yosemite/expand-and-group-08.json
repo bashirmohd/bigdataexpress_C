@@ -1,0 +1,9 @@
+{
+    "target": "00:25:90:fd:1b:24",
+    "cmd": "dtn_expand_and_group",
+    "params": {
+        "src_path": ["/DATA/empty-1", "/DATA/empty-2"],
+        "dst_path": "/data2",
+        "group_size": 5452595200
+    }
+}

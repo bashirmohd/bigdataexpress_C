@@ -1,0 +1,13 @@
+{
+    "target": "00:00:00:00:00:00",
+    "cmd": "dtn_expand_and_group_v2",
+    "description": "directory checksum, smaller group size, default algorithm",
+    "params": {
+        "src_path": ["/data/src/linux-4.4.49"],
+        "dst_path": "/data2",
+        "group_size": 104857600,
+        "result_in_db": false,
+        "max_files": 10,
+        "checksum": { "compute" : true }
+    }
+}
